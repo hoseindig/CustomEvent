@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>App B</title></head>
+<body>
+    <h1>App B</h1>
+  <div>Waiting for event...</div>
+
+  <script>
+    window.parent.addEventListener("my-event", (e) => {
+      const msg = e.detail?.message || "No message";
+      document.body.innerHTML += `<p>Received: ${msg}</p>`;
+      console.log("App B received event:", msg);
+    });
+  </script>
+</body>
+</html>

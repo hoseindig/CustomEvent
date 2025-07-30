@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Host</title></head>
+<body>
+  <h2>Host Page</h2>
+
+  <iframe src="../app-a/index.html" width="200" height="400"></iframe>
+  <iframe src="../app-b/index.html" width="300" height="400"></iframe>
+  <script>
+    window.parent.addEventListener("my-event", (e) => {
+      const msg = e.detail?.message || "No message";
+      console.log("Host Page received event:", msg);
+    });
+  </script>
+
+</body>
+</html>
