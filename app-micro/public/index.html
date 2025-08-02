@@ -5,7 +5,6 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue Widget</title>
-
     <script type="text/javascript">
       // Wait for widget to be available
       function widgetLoading() {
@@ -15,7 +14,6 @@
           setTimeout(widgetLoading, 100);
         }
       }
-
       function executeInitWidget() {
         try {
           window.MyVueWidget.mount("my-app");
@@ -26,11 +24,9 @@
           document.body.appendChild(pElement);
         }
       }
-
       widgetLoading();
     </script>
   </head>
-
   <body>
     <my-app></my-app>
     <script src="my-widget.js"></script>

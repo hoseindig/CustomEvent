@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>App A</title></head>
+<body>
+<h1>App A</h1>
+  <button id="sendBtn">Send Event</button>
+
+  <script>
+    document.getElementById("sendBtn").addEventListener("click", () => {
+      const event = new CustomEvent("my-event", { detail: { message: "Hello from A" } });
+      window.parent.dispatchEvent(event);
+    });
+  </script>
+</body>
+</html>
