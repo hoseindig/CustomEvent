@@ -7,26 +7,30 @@
     <title>Vue Widget</title>
 
     <script type="text/javascript">
-      function widgetLoading() {
-        if (window.MyVueWidget) {
-          executeInitWidget();
-        } else {
-          setTimeout(widgetLoading, 100);
-        }
-      }
+            function widgetLoading() {
+              if (widget) {
+                try {
+                  executeWidget(widget);
+                } catch (err) {
+                  var el = document.createElement("p");
+                  el.innerText = "Widget failed to load.";
+                  document.body.appendChild(el);
+                }
+              } else {
+                setTimeout(widgetLoading, 100);
+              }
+            }
+      function executeInitWidget(wdg)
+      // IMPORTANT: Due to the following line, make sure that when you set the source code // URL when registering the widget in 3DEXPERIENCE you include a final "/" before any query args. // for instance this is invalid https://victorious-hill.azurestaticapps.net?v-1 // while this is valid https://victorious-hill.azurestaticapps.net/?v=1 var uwaPath = wdg.uwaUrl.substring(0, wdg-uwaUrl. lastIndexOf("/") + 1):
+      try{
 
-      function executeInitWidget() {
-        try {
-          window.MyVueWidget.mount("my-app");
-        } catch (error) {
-          var pElement = document.createElement("p");
-          pElement.innerText =
-            "An error occurred while loading the widget. Please retry later.";
-          document.body.appendChild(pElement);
-        }
+        var scriptElement = document.createElement ("script"); scriptElement.src = uwaPath + "bundle.js?v=v1.0"; document.head. appendChild(scriptElevent);
       }
+       catch (error) (
+      var pElement = document.createElement("p"); pElement.innerText = "An error occured while loading the widget. Please retry later."; document.body.appendchild(pElement);
+            }
 
-      widgetLoading();
+            widgetLoading();
     </script>
   </head>
 
